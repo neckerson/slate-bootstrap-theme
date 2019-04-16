@@ -1,209 +1,252 @@
 {%- comment -%}
-  This is a required section for the Shopify Theme Store.
-  It is available in the "Header" section in the theme editor.
+This is a required section for the Shopify Theme Store.
+It is available in the "Header" section in the theme editor.
 
-  Theme Store required settings
-  - Show announcement
-  - Text: message to announce
-  - Link: link of the announcement bar
+Theme Store required settings
+- Show announcement
+- Text: message to announce
+- Link: link of the announcement bar
 
-  Theme Store optional settings
-  - Home page only: only shows on the home page
+Theme Store optional settings
+- Home page only: only shows on the home page
 {%- endcomment -%}
+
 <section data-section-id="{{ section.id }}" data-section-type="header">
-  {%- if section.settings.announcement_bar_enabled -%}
+  <header>
+
+    {%- if section.settings.announcement_bar_enabled -%}
     <div>
       {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
-        {%- if section.settings.announcement_bar_link != blank -%}
-          <a href="{{ section.settings.announcement_bar_link }}">
-            {{ section.settings.announcement_bar_text | escape }}
-          </a>
-        {%- else -%}
-          <p>{{ section.settings.announcement_bar_text | escape }}</p>
-        {%- endif -%}
+      {%- if section.settings.announcement_bar_link != blank -%}
+      <a href="{{ section.settings.announcement_bar_link }}">
+        {{ section.settings.announcement_bar_text | escape }}
+      </a>
+      {%- else -%}
+      <p>{{ section.settings.announcement_bar_text | escape }}</p>
+      {%- endif -%}
       {%- endif -%}
     </div>
-  {%- endif -%}
+    {%- endif -%}
 
-  <header role="banner">
-    {% if template.name == 'index' %}
-      <h1>
-    {% else %}
-      <div class="h1">
-    {% endif %}
-        <a href="/" class="logo-image">
-          {% if section.settings.logo != blank %}
-            {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-            <img src="{{ section.settings.logo | img_url: image_size }}"
-                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                alt="{{ section.settings.logo.alt | default: shop.name }}">
-          {% else %}
-            {{ shop.name }}
-          {% endif %}
-        </a>
-    {% if template.name == 'index' %}
-      </h1>
-    {% else %}
-      </div>
-    {% endif %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
 
-    <a href="/cart">
-      {% include 'icon-cart' %}
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+        <div class="container">
 
-    {% if shop.customer_accounts_enabled %}
-      <ul>
-        {% if customer %}
-          <li>
-            {% if customer.first_name != blank %}
-              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-              {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-            {% else %}
-              <a href="/account">{{ 'layout.customer.account' | t }}</a>
-            {% endif %}
-          </li>
-          <li>
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </li>
-        {% else %}
-          <li>
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </li>
-          <li>
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
-          </li>
-        {% endif %}
-      </ul>
-    {% endif %}
+          <div role="banner" class="navbar-brand">
+            {% if template.name == 'index' %}
+              <h1>
+              {% else %}
+                <div class="h1">
+                {% endif %}
+                <a href="/" class="text-light logo-image">
+                  {% if section.settings.logo != blank %}
+                    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                    <img src="{{ section.settings.logo | img_url: image_size }}"
+                        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                        alt="{{ section.settings.logo.alt | default: shop.name }}">
+                  {% else %}
+                    {{ shop.name }}
+                  {% endif %}
+                </a>
+                {% if template.name == 'index' %}
+                </h1>
+              {% else %}
+                  </div>
+                {% endif %}
+          </div>
 
-    <form action="/search" method="get" role="search">
-      <label for="Search-{{ section.id }}" class="label-hidden">
-        {{ 'general.search.placeholder' | t }}
-      </label>
+          <div class="d-flex flex-row order-2 order-lg-3">
+            <div class="nav-item">
+              <a href="/cart">
+                <div class="container">
+                  <div class="row">
 
-      <input type="search"
-        name="q"
-        id="Search-{{ section.id }}"
-        value="{{ search.terms | escape }}"
-        placeholder="{{ 'general.search.placeholder' | t }}">
+                    {% comment %}
+                    - see gist for Bootstrap centering text on image...
+                    https://gist.github.com/petehouston/85dd33210c0764eeae55
+                    {% endcomment %}
 
-      <button type="submit" class="button">
-        {% include 'icon-search' %}
-        <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
-      </button>
-    </form>
-  </header>
+                    <div class="icon mr-5 text-center position-relative">
+                      {% include 'icon-cart' %}
+                      <div class="position-absolute" style="color: white;
+                        z-index: 10; font-weight:700; left: 4px; top: 8%; width: 100%;">
+                        {{ cart.item_count }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% comment %}
+                {{ 'layout.cart.title' | t }}
+                {% endcomment %}
+              </a>
+            </div>
 
-  <nav role="navigation">
-    <ul>
-      {% for link in linklists[section.settings.menu].links %}
-        {% if link.links != blank %}
-          <li>
-            <a href="{{ link.url }}">
-              {{ link.title }}
-              {% include 'icon-arrow-down' %}
-            </a>
-            <ul>
-              {% for childlink in link.links %}
-                <li>
-                  <a href="{{ childlink.url }}">
-                    {{ childlink.title }}
-                  </a>
-                </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+          </div>
+
+          <div class="collapse navbar-collapse order-3 order-lg-2" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              {% for link in linklists[section.settings.menu].links %}
+                {% if link.links != blank %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ link.url }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{ link.title }}
+                      {% include 'icon-arrow-down' %}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      {% for childlink in link.links %}
+                        <a class="dropdown-item" href="{{ childlink.url }}">
+                          {{ childlink.title }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </li>
+                {% else %}
+                  <li class="nav-item {% if link.active %} active {% endif %}">
+                    <a class="nav-link" href="{{ link.url }}">
+                      {{ link.title }}
+                      <div class="d-lg-none border-top"></div>
+                    </a>
+                  </li>
+                {% endif %}
               {% endfor %}
             </ul>
-          </li>
-        {% else %}
-          <li>
-            <a href="{{ link.url }}">
-              {{ link.title }}
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
+
+
+          {% if shop.customer_accounts_enabled %}
+            <div class="nav-item">
+              <a href="/account">
+
+                      <button type="button" class="d-lg-none btn-lg btn-primary">
+                        {% include 'icon-user' %} My
+                          Account
+                      </button>
+
+                <div class="d-none d-lg-block container">
+                  <div class="row">
+
+
+                      <div class=" icon">
+                          {% include 'icon-user' %}
+                      </div>
+
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endif %}
+
+          {% comment %}
+            <form class="form-inline my-2 my-lg-0" action="/search" method="get" role="search">
+              <label for="Search-{{ section.id }}" class="label-hidden">
+                {{ 'general.search.placeholder' | t }}
+              </label>
+
+              <input type="search"
+                    class="form-control mr-sm-2"
+                    name="q"
+                    id="Search-{{ section.id }}"
+                    value="{{ search.terms | escape }}"
+                    aria-label="Search"
+                    placeholder="{{ 'general.search.placeholder' | t }}">
+
+              <button type="submit" class="btn btn-outline-success my-2 my-sm-0">
+                {% include 'icon-search' %}
+                <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+              </button>
+            </form>
+          {% endcomment %}
+
+          </div>
+
+        </div>
+      </nav>
+
+  </header>
+
 </section>
 
 {% if section.settings.logo != blank %}
   <style>
-    .logo-image {
-      display: block;
-      max-width: {{ section.settings.logo_max_width }}px;
-    }
+.logo-image {
+  display: block;
+  max-width: {{ section.settings.logo_max_width }}px;
+}
   </style>
 {% endif %}
 
 {% schema %}
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Announcement bar"
-      },
-      {
-        "type": "checkbox",
-        "id": "announcement_bar_enabled",
-        "label": "Show announcement",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "announcement_bar_home_page_only",
-        "label": "Show on home page only",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "announcement_bar_text",
-        "label": "Announcement text",
-        "default": "Announce something here"
-      },
-      {
-        "type": "url",
-        "id": "announcement_bar_link",
-        "label": "Announcement link",
-        "info": "Optional"
-      },
-      {
-        "type": "header",
-        "content": "Header"
-      },
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo image"
-      },
-      {
-        "type": "range",
-        "id": "logo_max_width",
-        "min": 50,
-        "max": 450,
-        "step": 10,
-        "unit": "px",
-        "label": "Custom logo width",
-        "default": 250
-      },
-      {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Menu",
-        "default": "main-menu"
-      }
-    ]
-  }
+{
+"name": "Header",
+"settings": [
+{
+"type": "header",
+"content": "Announcement bar"
+},
+{
+"type": "checkbox",
+"id": "announcement_bar_enabled",
+"label": "Show announcement",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "announcement_bar_home_page_only",
+"label": "Show on home page only",
+"default": true
+},
+{
+"type": "text",
+"id": "announcement_bar_text",
+"label": "Announcement text",
+"default": "Announce something here"
+},
+{
+"type": "url",
+"id": "announcement_bar_link",
+"label": "Announcement link",
+"info": "Optional"
+},
+{
+"type": "header",
+"content": "Header"
+},
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Logo image"
+},
+{
+"type": "range",
+"id": "logo_max_width",
+"min": 50,
+"max": 450,
+"step": 10,
+"unit": "px",
+"label": "Custom logo width",
+"default": 250
+},
+{
+"type": "link_list",
+"id": "menu",
+"label": "Menu",
+"default": "main-menu"
+}
+]
+}
 {% endschema %}
 
 <script type="application/ld+json">
-{
+  {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "{{ shop.name }}",
   {% if section.settings.logo %}
-    {% assign image_size = section.settings.logo.width | append:'x' %}
+ {% assign image_size = section.settings.logo.width | append:'x' %}
     "logo": "https:{{ section.settings.logo | img_url: image_size }}",
   {% endif %}
   "sameAs": [
