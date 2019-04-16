@@ -1,49 +1,73 @@
 <footer>
+  <div class="fluid-container bg-secondary">
 
-  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-  <ul>
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+    <div class="row">
+    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+      <ul>
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
 
-      {% if settings[social_link] != blank %}
-        <li>
-          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-            {% include social_icon %}
-            <span class="icon-fallback-text">{{ social }}</span>
-          </a>
-        </li>
-      {% endif %}
+          {% if settings[social_link] != blank %}
+            <li>
+              <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                {% include social_icon %}
+                <span class="icon-fallback-text">{{ social }}</span>
+              </a>
+            </li>
+          {% endif %}
 
-    {% endfor %}
-  </ul>
-
-  {% if section.settings.show_payment_icons %}
-    {% unless shop.enabled_payment_types == empty %}
-      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-      <ul class="payment-icons">
-        {% for type in shop.enabled_payment_types %}
-          <li>
-            {{ type | payment_type_svg_tag: class: 'icon' }}
-          </li>
         {% endfor %}
       </ul>
-    {% endunless %}
-  {% endif %}
+    </div>
 
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+    <div class="row">
+      {% if section.settings.show_payment_icons %}
+        {% unless shop.enabled_payment_types == empty %}
+          <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+          <ul class="payment-icons">
+            {% for type in shop.enabled_payment_types %}
+              <li>
+                {{ type | payment_type_svg_tag: class: 'icon' }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endunless %}
+      {% endif %}
+    </div>
 
-  <div>
-    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
+    <div class="row">
+      {%- assign footer_linklist = section.settings.footer_linklist -%}
+      {% assign linklist_modulo_three = linklists[footer_linklist].links.size | modulo:3 %}
+
+      {% if linklists[footer_linklist].links.size > 0 %}
+        {% for link in linklists[footer_linklist].links %}
+
+          {% cycle '<div class="col-sm">', '', '' %}
+            {% cycle '<ul>', '', '' %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% cycle '', '', '</ul>' %}
+          {% cycle '', '', '</div>' %}
+
+        {% endfor %}
+
+        {% if linklist_modulo_three != 0 %}
+          </div>
+        {% endif %}
+
+      {% endif %}
+
+    </div>
+
   </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-md-center bg-primary py-3">
+      <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}.</small>
+    </div>
+  </div>
+
 </footer>
 
 {% schema %}
