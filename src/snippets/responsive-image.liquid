@@ -72,7 +72,7 @@
 <div id="ImageWrapper-{{ image.id }}-{{ responsive_image_counter }}" data-image-id="{{ image.id }}" class="responsive-image__wrapper {{ wrapper_class }}" {{ wrapper_attributes }}>
   <img id="Image-{{ image.id }}-{{ responsive_image_counter }}"
     class="responsive-image__image lazyload {{ image_class }}"
-    src="{{ image | img_url: '100x' }}"
+    src="{{ image | img_url: '300x' }}"
     data-src="{{ img_url }}"
     data-widths="[{{ image_widths }}]"
     data-aspectratio="{{ image.aspect_ratio }}"
