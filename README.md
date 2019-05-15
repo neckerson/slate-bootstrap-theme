@@ -1,8 +1,12 @@
-[![Build Status](https://travis-ci.org/Shopify/skeleton-theme.svg?branch=master)](https://travis-ci.org/Shopify/skeleton-theme)
-
 # Slate-Bootstrap Theme
 
 > **[Slate v1](https://github.com/Shopify/slate) is currently in beta!** You should expect potentially breaking changes between updates and more bugs than a finalized release. Slate v1.0 has not yet been tested on Windows.
+
+This is the starter theme I wish had been available when I was rolling my own integration of Bootstrap 4 into a custom Shopify theme.
+
+I've started with the base Shopify/skeleton-theme and brought over most of the /src directory of Shopify/starter-theme, with the exception of ```src/styles```. If you find yourself overriding many of the default Bootstrap styles, take a look at the Starter Theme /styles directory structure and theme.scss to see how Shopify implements SCSS.
+
+For responsive image loading, use the responsive-image & responsive-bg-image snippets. They pair well with Bootstrap's responsive classes.
 
 ## System requirements
 

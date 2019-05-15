@@ -1,18 +1,18 @@
 {
-  "name": "skeleton-theme",
+  "name": "slate-bootstrap",
   "version": "1.0.0-alpha.1",
   "private": true,
-  "author": "Shopify Inc.",
-  "description": "A barebones, Slate compatible, starting point for developing Shopify themes.",
+  "author": "Nate Eckerson",
+  "description": "A barebones Slate compatible Shopify theme with Bootstrap 4.",
   "keywords": [
     "shopify",
     "theme"
   ],
-  "bugs": "https://github.com/Shopify/skeleton-theme/issues",
+  "bugs": "https://github.com/neckerson/slate-bootstrap/issues",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Shopify/skeleton-theme.git"
+    "url": "https://github.com/neckerson/slate-bootstrap.git"
   },
   "devDependencies": {
     "@shopify/slate-tools": "1.0.0-beta.18",
