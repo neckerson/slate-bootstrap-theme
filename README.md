@@ -9,7 +9,9 @@ I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/s
 For responsive image loading, use the ```responsive-image``` & ```responsive-bg-image``` snippets. They pair well with Bootstrap's responsive classes, and the lazyloader dependancy is built into the theme.
 
 ### jQuery & Webpack
-Because Bootstrap requires jQuery, some additional setup is required in ```theme.js```. For discussion of this issue, see issue [#4258](https://github.com/webpack/webpack/issues/42580). To add plugins to the site, such as [jackmoore/zoom](https://github.com/jackmoore/zoom) for product images, take a look at [this gist](https://gist.github.com/neckerson/fd24e76e5c3f38d5aef83baadd09d28b) which is already implemented in ```theme.js```.
+Because Bootstrap requires jQuery, additional setup is required in ```theme.js```. For discussion, see Webpack issue [#4258](https://github.com/webpack/webpack/issues/4258).
+
+To add plugins to the theme, such as [jackmoore/zoom](https://github.com/jackmoore/zoom), take a look at [this gist](https://gist.github.com/neckerson/fd24e76e5c3f38d5aef83baadd09d28b) which is partially implemented in ```theme.js```.
 
 ## System requirements
 
