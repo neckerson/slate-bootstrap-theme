@@ -20,3 +20,11 @@ bindInPageLinks();
 // Set up jQuery so that it can be accessed from the HTML
 window.jQuery = $;
 window.$ = $;
+
+// Apply a specific class to the html element for browser support of cookies.
+if (window.navigator.cookieEnabled) {
+  document.documentElement.className = document.documentElement.className.replace(
+    'supports-no-cookies',
+    'supports-cookies',
+  );
+}
