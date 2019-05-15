@@ -8,8 +8,14 @@ import 'lazysizes/plugins/bgset/ls.bgset';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import 'lazysizes';
 
+import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
+
 import "../../styles/theme.scss";
 import "../../styles/theme.scss.liquid";
+
+// Common a11y fixes
+focusHash();
+bindInPageLinks();
 
 // Set up jQuery so that it can be accessed from the HTML
 window.jQuery = $;
