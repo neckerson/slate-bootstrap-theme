@@ -21,7 +21,11 @@ bindInPageLinks();
 window.jQuery = $;
 window.$ = $;
 
-// Apply a specific class to the html element for browser support of cookies.
+// Use jquery-zoom for product image-zoom effects
+require('jquery-zoom');
+
+// cookiesEnabled was removed from the latest version of theme-scripts cart.js
+// https://github.com/Shopify/starter-theme/issues/112
 if (window.navigator.cookieEnabled) {
   document.documentElement.className = document.documentElement.className.replace(
     'supports-no-cookies',
