@@ -1,0 +1,107 @@
+{% if section.settings.image != blank %}
+  {% assign hero_image = section.settings.image %}
+{% else %}
+  {% assign hero_image = 'placeholder-svg' %}
+{% endif %}
+
+{% include 'responsive-image' with image: hero_image, max_width: 768, wrapper_class: 'd-md-none' %}
+
+<div class="hero-image jumbotron-fluid lazyload d-flex justify-content-center
+     mb-3 mb-sm-0"
+      {% if section.settings.overlay_color != 'rgba(0,0,0,0)' %}
+        data-bgprefix="linear-gradient({{ section.settings.overlay_color |
+        color_modify: 'alpha', 0.35}}, {{ section.settings.overlay_color |
+        color_modify: 'alpha', 0.35}}), "
+      {% else %}
+        data-bgprefix="linear-gradient({{ section.settings.overlay_color}}, {{
+                         section.settings.overlay_color}}), "
+      {% endif %}
+     data-bgset="{% include 'responsive-bg-image', image: hero_image %}">
+  <div class="flex-row text-center align-self-center">
+    <div class="col">
+      {% if section.settings.title != blank %}
+      <h1 class="display-4">{{ section.settings.title | escape }}</h1>
+      {% endif %}
+      {% if section.settings.text != blank %}
+      <h2 class="">{{ section.settings.text }}</h2>
+      {% endif %}
+    </div>
+    <div class="col mt-3 mt-md-5">
+      {% if section.settings.button_label_1 != blank and
+        section.settings.button_link_1 != blank %}
+        <a class="btn btn-secondary btn-lg
+        {% if section.settings.button_label_2 != blank and
+          section.settings.button_link_2 != blank %} mr-3
+         {% endif %}"
+          href="{{ section.settings.button_link_1 }}">
+          {{ section.settings.button_label_1 | escape }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_label_2 != blank and
+        section.settings.button_link_2 != blank %}
+        <a class="btn btn-primary btn-lg" href="{{
+                  section.settings.button_link_2 }}">
+          {{ section.settings.button_label_2 | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "overlay_color",
+        "label": "Banner Color Overlay",
+        "default": "#333333",
+        "info": "This allows you to pick a color to overlay on the banner image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Banner Text",
+        "default": "Image with text"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Text for the banner!"
+      },
+      {
+        "type": "text",
+        "id": "button_label_1",
+        "label": "Primary Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link_1",
+        "label": "Primary Button link"
+      },
+      {
+        "type": "text",
+        "id": "button_label_2",
+        "label": "Secondary Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link_2",
+        "label": "Secondary Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

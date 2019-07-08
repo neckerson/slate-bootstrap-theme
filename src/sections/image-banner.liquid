@@ -1,0 +1,81 @@
+<div class="banner-image jumbotron-fluid lazyload d-flex justify-content-center"
+      {% if section.settings.overlay_color != 'rgba(0,0,0,0)' %}
+        data-bgprefix="linear-gradient({{ section.settings.overlay_color |
+        color_modify: 'alpha', 0.35}}, {{ section.settings.overlay_color |
+        color_modify: 'alpha', 0.35}}), "
+      {% else %}
+        data-bgprefix="linear-gradient({{ section.settings.overlay_color}}, {{
+                         section.settings.overlay_color}}), "
+      {% endif %}
+      {% if section.settings.image != blank %}
+        data-bgset="{% include 'responsive-bg-image', image: section.settings.image %}">
+      {% else %}
+        data-bgset="{% include 'responsive-bg-image', image: 'placeholder-svg' %}">
+      {% endif %}
+
+  <div class="flex-row text-center align-self-center">
+    <div class="col">
+      {% if section.settings.title != blank %}
+      <h2 class="display-4">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+      <h3>{{ section.settings.text }}</h3>
+      {% endif %}
+    </div>
+    <div class="col">
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="btn btn-primary btn-lg mt-3" href="{{ section.settings.button_link }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "overlay_color",
+        "label": "Banner Color Overlay",
+        "default": "#333333",
+        "info": "This allows you to pick a color to overlay on the banner image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Banner Text",
+        "default": "Image with text"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Text for the banner!"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

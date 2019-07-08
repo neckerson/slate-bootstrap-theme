@@ -4,7 +4,7 @@ import 'bootstrap';
 import 'lazysizes/plugins/object-fit/ls.object-fit';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import 'lazysizes/plugins/rias/ls.rias';
-import 'lazysizes/plugins/bgset/ls.bgset';
+import '../vendor/lazysizes/plugins/ls.bgset';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import 'lazysizes';
 
