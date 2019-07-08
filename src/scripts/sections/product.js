@@ -214,3 +214,9 @@ register('product', {
     window.history.replaceState({path: url}, '', url);
   },
 });
+
+// This takes care of attaching jquery-zoom to the main image element, firing
+// when the image loads.
+$('.responsive-image__image').on('load', function() {
+  $('.product-image .responsive-image__wrapper:visible').zoom();
+});
