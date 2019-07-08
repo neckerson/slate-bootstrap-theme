@@ -30,12 +30,15 @@
         },
         "featured-product": {
           "type": "featured-product"
+        },
+        "announcement-banner": {
+          "type": "announcement-banner"
         }
       },
       "content_for_index": [
-        "collection-list",
-        "featured-collection",
-        "featured-product"
+        "featured-product",
+        "announcement-banner",
+        "featured-collection"
       ]
     }
   }
