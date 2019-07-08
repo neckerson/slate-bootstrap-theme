@@ -1,0 +1,48 @@
+{%- comment -%}
+{%- endcomment -%}
+<section class="container-fluid py-3 mb-3 bg-info">
+  <div class="container">
+    {%- if section.settings.text != blank -%}
+    <div class="d-flex flex-wrap align-items-center">
+      <div class="col-md-9 col-lg-10 text-light">
+        {{ section.settings.text }}
+      </div>
+      <div class="ml-3 mt-3 mt-md-0">
+        {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}" class="btn btn-secondary">{{ section.settings.link-text }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Announcement Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "link-text",
+        "label": "Link Text",
+        "default": "Button"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link",
+        "default": "/collections"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Use this section to make an announcement on the home page. It's a great place for social media updates!"
+      }
+    ],
+    "presets": [{
+        "name": "Announcement Banner",
+        "category": "Text"
+    }]
+  }
+{% endschema %}
