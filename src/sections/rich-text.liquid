@@ -11,8 +11,10 @@
     <h2>{{ section.settings.title | escape }}</h2>
   {%- endif -%}
   {%- if section.settings.text != blank -%}
-    <div class="rte">
-      {{ section.settings.text }}
+    <div class="row">
+      <div class="col">
+        {{ section.settings.text }}
+      </div>
     </div>
   {%- endif -%}
 </section>
@@ -20,6 +22,7 @@
 {% schema %}
   {
     "name": "Rich text",
+    "class": "container pt-3",
     "settings": [
       {
         "type": "text",
