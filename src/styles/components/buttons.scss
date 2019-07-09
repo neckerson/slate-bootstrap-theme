@@ -1,0 +1,45 @@
+// Social media icon styling
+@mixin social-icon($icon-color) {
+  .icon {
+    color: $icon-color;
+    transition: $btn-transition;
+  }
+  &:hover {
+    .icon {
+      color: $color_body;
+    }
+  }
+}
+
+.btn-facebook {
+  @include social-icon(#3b5998);
+}
+
+.btn-pinterest {
+  @include social-icon(#c8232c);
+}
+
+.btn-twitter {
+  @include social-icon(#38A1F3);
+}
+
+.btn-primary {
+  // button-variant is pulled in from /boostrap/mixins/_buttons.scss
+  @include button-variant($orange, $orange);
+  color: $white;
+}
+
+.btn-secondary {
+  @include button-variant($blue, $blue);
+  color: $white;
+}
+
+.cart-counter-badge {
+  top: 10px;
+  text-align: center;
+  left: 25%;
+  right: 25%;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 25px;
+}
