@@ -1,0 +1,10 @@
+a img {
+  -webkit-transition-duration: $transition-duration;
+  -moz-transition-duration: $transition-duration;
+  -o-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
