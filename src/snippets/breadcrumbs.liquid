@@ -1,0 +1,58 @@
+{% comment %}
+  Note that the conditionals targeting the product collections originally drew
+  link titles from en.default.json. I have overwritten the original wording with
+  product text...
+
+  Add the line below in if you want the first breadcrumb = homepage.
+
+  <a class="breadcrumb-item" href="/">{{ 'breadcrumbs.home' | t }}</a>
+{% endcomment %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white">
+    {% if template contains "blog" and current_tags.size > 0 %}
+      <li class="breadcrumb-item"><a href="/pages/content-hub">Content Hub</a></li>
+      <li class="breadcrumb-item"><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ 'breadcrumbs.tagged' | t }}: {% for tag in current_tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}</li>
+    {% elsif template contains "blog" %}
+      <li class="breadcrumb-item"><a href="/pages/content-hub">Content Hub</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ blog.title }}</li>
+    {% elsif template contains "article" %}
+      <li class="breadcrumb-item"><a href="/pages/content-hub">Content Hub</a></li>
+      <li class="breadcrumb-item">{{ blog.title | link_to: blog.url }}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+    {% elsif template contains "page" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ page.title }}</li>
+    {% elsif template contains "customers/login" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'layout.customer.log_in' | t }}</li>
+    {% elsif template contains "customers/register" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item"><a href="/account">{{ 'layout.customer.log_in' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'layout.customer.create_account' | t }}</li>
+    {% elsif template contains "customers/reset_password" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'breadcrumbs.reset_password' | t }}</li>
+    {% elsif template contains "customers/activate_account" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'breadcrumbs.activate_account' | t }}</li>
+    {% elsif template contains "customers/account" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'layout.customer.account' | t }}</li>
+    {% elsif template contains "customers/addresses" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item"><a href="/account">{{ 'layout.customer.account' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'customer.addresses.title' | t }}</li>
+    {% elsif template contains "customers/order" %}
+      <li class="breadcrumb-item"><a href="/">{{ 'breadcrumbs.home' | t }}</a></li>
+      <li class="breadcrumb-item"><a href="/account">{{ 'layout.customer.account' | t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'customer.order.title' | t: name:
+        order.name }}</li>
+    {% comment %}
+    {% elsif template contains "404" %}
+      <span>404</span>
+    {% endcomment %}
+    {% endif %}
+  </ol>
+</nav>
