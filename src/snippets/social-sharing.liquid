@@ -1,28 +1,33 @@
 <!-- /snippets/social-sharing.liquid -->
-<div class="social-sharing">
+<div class="social-sharing pb-3">
 
   {% if settings.share_facebook %}
-    <a target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}">
-      {% include 'icon-facebook' %}
-      <span aria-hidden="true">{{ 'general.social.share_on_facebook' | t }}</span>
-      <span class="visually-hidden">{{ 'general.social.alt_text.share_on_facebook' | t }}</span>
+    <a class="btn btn-sm btn-facebook btn-outline-secondary mt-3" target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}">
+      <div class="d-flex align-items-center">
+        {% include 'icon-facebook' %}
+        <span aria-hidden="true" class="pl-1">{{ 'general.social.share_on_facebook' | t }}</span>
+        <span class="d-none">{{ 'general.social.alt_text.share_on_facebook' | t }}</span>
+      </div>
     </a>
   {% endif %}
 
   {% if settings.share_twitter %}
-    <a target="_blank" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}">
-      {% include 'icon-twitter' %}
-      <span aria-hidden="true">{{ 'general.social.share_on_twitter' | t }}</span>
-      <span class="visually-hidden">{{ 'general.social.alt_text.share_on_twitter' | t }}</span>
+    <a class="btn btn-sm btn-twitter btn-outline-secondary mt-3" target="_blank" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}">
+      <div class="d-flex align-items-center">
+        {% include 'icon-twitter' %}
+        <span aria-hidden="true" class="pl-1">{{ 'general.social.share_on_twitter' | t }}</span>
+        <span class="d-none">{{ 'general.social.alt_text.share_on_twitter' | t }}</span>
+      </div>
     </a>
   {% endif %}
 
   {% if settings.share_pinterest %}
-    <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
-      {% include 'icon-pinterest' %}
-      <span aria-hidden="true">{{ 'general.social.share_on_pinterest' | t }}</span>
-      <span class="visually-hidden">{{ 'general.social.alt_text.share_on_pinterest' | t }}</span>
+    <a class="btn btn-sm btn-outline-secondary btn-pinterest mt-3" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
+      <div class="d-flex align-items-center">
+        {% include 'icon-pinterest' %}
+        <span aria-hidden="true" class="pl-1">{{ 'general.social.share_on_pinterest' | t }}</span>
+        <span class="d-none">{{ 'general.social.alt_text.share_on_pinterest' | t }}</span>
+      </div>
     </a>
   {% endif %}
-
 </div>
