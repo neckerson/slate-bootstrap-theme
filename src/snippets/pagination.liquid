@@ -1,3 +1,49 @@
-<div class="pagination">
-  {{ paginate | default_pagination }}
-</div>
+{% comment %}
+
+  This snippet renders a custom widget based on the current 'paginate' context,
+  defined in { % paginate XXXX by 5 % } tags wrapping the content.
+  The example below breaks the pagination down so you can setup your own styles and behavior if you wish.
+
+  Basic Pagination Usage:
+    <div class="pagination">
+      {{ paginate | default_pagination }}
+    </div>
+
+  Replace Text:
+    <div class="pagination">
+      {{ paginate | default_pagination | replace: 'Previous', 'Newer articles' | replace: 'Next', 'Older articles' }}
+    </div>
+
+  More information:
+   - index#pagination
+   - http://docs.shopify.com/themes/liquid-variables/paginate
+
+{% endcomment %}
+
+<ul class="pagination">
+  {% if paginate.previous %}
+    <li class="page-item"><a class="page-link" href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">&larr;</a></li>
+  {% else %}
+    <li class="disabled page-item"><span class="page-link">&larr;</span></li>
+  {% endif %}
+
+  {% for part in paginate.parts %}
+    {% if part.is_link %}
+      <li class="page-item">
+        <a class="page-link" href="{{ part.url }}" title="">{{ part.title }}</a>
+      </li>
+    {% else %}
+      {% if part.title == paginate.current_page %}
+        <li class="active page-item"><span class="page-link">{{ part.title }}</span></li>
+      {% else %}
+        <li><span class="page-link">{{ part.title }}</span></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if paginate.next %}
+    <li class="page-item"><a class="page-link" href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">&rarr;</a></li>
+  {% else %}
+    <li class="disabled page-item"><span class="page-link">&rarr;</span></li>
+  {% endif %}
+</ul>
