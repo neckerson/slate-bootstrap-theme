@@ -1,0 +1,53 @@
+// Product Page
+.money {
+  color: #41ad01;
+}
+
+.product-promo {
+  font-size: 65%;
+}
+
+@include media-breakpoint-up(lg) {
+  .promo-ul li:first-child {
+    border-right: 1px solid black;
+    margin-right: 0;
+    padding-right: 0.5rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #product-tabs {
+    .nav-link {
+      font-size: 0.8em;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #product-tabs {
+    .nav-link {
+      font-size: 0.7em;
+      padding: 0.5rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+
+  .product-image {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .product-container {
+    max-width: 100%;
+  }
+}
+
+.product-single__thumbnail-image {
+  border: 2px solid transparent;
+
+  .active-thumbnail & {
+    border-color: $color-border;
+  }
+}
