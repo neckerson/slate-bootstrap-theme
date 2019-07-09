@@ -1,29 +1,44 @@
-<h1>{{ 'customer.activate_account.title' | t }}</h1>
-<p>{{ 'customer.activate_account.subtext' | t }}</p>
+<div class="container">
 
-{% form 'activate_customer_password' %}
-  {{ form.errors | default_errors }}
+  <div class="row">
+    {% include 'breadcrumbs' %}
+  </div>
 
-  <p>
-    <label for="CustomerPassword" class="label-hidden">
-      {{ 'customer.activate_account.password' | t }}
-    </label>
-    <input type="password"
-      name="customer[password]"
-      id="CustomerPassword"
-      placeholder="{{ 'customer.activate_account.password' | t }}">
-  </p>
+  <div class="row">
+    <div class="col-lg-8 mx-auto mb-3">
 
-  <p>
-    <label for="CustomerPasswordConfirmation" class="label-hidden">
-      {{ 'customer.activate_account.password_confirm' | t }}
-    </label>
-    <input type="password"
-      name="customer[password_confirmation]"
-      id="CustomerPasswordConfirmation"
-      placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
-  </p>
+      <h1>{{ 'customer.activate_account.title' | t }}</h1>
 
-  <input type="submit" class="button" value="{{ 'customer.activate_account.submit' | t }}">
-  <input type="submit" class="button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
-{% endform %}
+      <p>{{ 'customer.activate_account.subtext' | t }}</p>
+
+      {% form 'activate_customer_password' %}
+      {{ form.errors | default_errors }}
+
+      <div class="form-group">
+        <label for="CustomerPassword">
+          {{ 'customer.activate_account.password' | t }}
+        </label>
+        <input type="password"
+               name="customer[password]"
+               id="CustomerPassword"
+               class="form-control"
+               placeholder="{{ 'customer.activate_account.password' | t }}">
+      </div>
+
+      <div class="form-group">
+        <label for="CustomerPasswordConfirmation">
+          {{ 'customer.activate_account.password_confirm' | t }}
+        </label>
+        <input type="password"
+               name="customer[password_confirmation]"
+               id="CustomerPasswordConfirmation"
+               class="form-control"
+               placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="{{ 'customer.activate_account.submit' | t }}">
+      <input type="submit" class="btn btn-secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+      {% endform %}
+    </div>
+  </div>
+</div>

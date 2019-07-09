@@ -1,51 +1,75 @@
-<h1>{{ 'customer.register.title' | t }}</h1>
+<div class="container">
 
-{% form 'create_customer' %}
-  {{ form.errors | default_errors }}
+  <div class="row">
+    {% include 'breadcrumbs' %}
+  </div>
 
-  <label for="FirstName" class="label-hidden">
-    {{ 'customer.register.first_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[first_name]"
-    id="FirstName"
-    placeholder="{{ 'customer.register.first_name' | t }}"
-    autofocus
-    {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+  <div class="row">
+    <div class="col-lg-8 mx-auto mb-3">
+      <h1>{{ 'customer.register.title' | t }}</h1>
 
-  <label for="LastName" class="label-hidden">
-    {{ 'customer.register.last_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[last_name]"
-    id="LastName"
-    placeholder="{{ 'customer.register.last_name' | t }}"
-    {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+      {% form 'create_customer' %}
 
-  <label for="Email" class="label-hidden">
-    {{ 'customer.register.email' | t }}
-  </label>
-  <input type="email"
-    name="customer[email]"
-    id="Email"
-    class="{% if form.errors contains 'email' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.email' | t }}"
-    value="{% if form.email %}{{ form.email }}{% endif %}"
-    spellcheck="false"
-    autocomplete="off"
-    autocapitalize="off">
+      {{ form.errors | default_errors }}
 
-  <label for="CreatePassword" class="label-hidden">
-    {{ 'customer.register.password' | t }}
-  </label>
-  <input type="password"
-    name="customer[password]"
-    id="CreatePassword"
-    class="{% if form.errors contains 'password' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.password' | t }}">
+      <div class="form-group">
+        <label for="FirstName">
+          {{ 'customer.register.first_name' | t }}
+        </label>
+        <input type="text"
+               name="customer[first_name]"
+               class="form-control mb-3"
+               id="FirstName"
+               placeholder="{{ 'customer.register.first_name' | t }}"
+               autofocus
+               {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+      </div>
 
-  <p>
-    <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button">
-  </p>
-  <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
-{% endform %}
+      <div class="form-group">
+        <label for="LastName">
+          {{ 'customer.register.last_name' | t }}
+        </label>
+        <input type="text"
+               name="customer[last_name]"
+               class="form-control mb-3"
+               id="LastName"
+               placeholder="{{ 'customer.register.last_name' | t }}"
+               {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+      </div>
+
+      <div class="form-group">
+        <label for="Email">
+          {{ 'customer.register.email' | t }}
+        </label>
+        <input type="email"
+               name="customer[email]"
+               class="form-control mb-3"
+               id="Email"
+               class="{% if form.errors contains 'email' %}input-error{% endif %}"
+               placeholder="{{ 'customer.register.email' | t }}"
+               value="{% if form.email %}{{ form.email }}{% endif %}"
+               spellcheck="false"
+               autocomplete="off"
+               autocapitalize="off">
+      </div>
+
+      <div class="form-group">
+        <label for="CreatePassword">
+          {{ 'customer.register.password' | t }}
+        </label>
+        <input type="password"
+               name="customer[password]"
+               class="form-control mb-3"
+               id="CreatePassword"
+               class="{% if form.errors contains 'password' %}input-error{% endif %}"
+               placeholder="{{ 'customer.register.password' | t }}">
+      </div>
+
+      <input type="submit" value="{{ 'customer.register.submit' | t }}"
+      class="btn btn-primary">
+
+    </div>
+
+    {% endform %}
+  </div>
+</div>
