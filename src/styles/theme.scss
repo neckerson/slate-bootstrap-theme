@@ -7,10 +7,32 @@
 // Bootstrap CSS
 @import '~bootstrap/scss/bootstrap';
 
+// Settings
+@import './variables';
 
-/**
-  * Additional SCSS files can be imported from folders, etc.
-  */
+// Tools
+@import './tools/mixins';
+
+// Core
+@import './core/helpers';
+@import './core/media';
+@import './core/typography';
+
+// Components
+@import './components/buttons';
+@import './components/icons';
+@import './components/responsive-images';
+@import './components/breadcrumbs';
+
+// // Sections
+@import './sections/hero-banner';
+@import './sections/image-banner';
+@import './sections/header';
+
+// Templates
+// @import './templates/gift_card';
+@import './templates/product';
+@import './templates/cart';
 
 // // Sections
 // @import './sections/blog-posts';
