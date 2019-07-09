@@ -1,0 +1,17 @@
+.banner-image {
+  height: 450px;
+  background-size: cover;
+  color: white;
+
+  h3 {
+    font-family: $font-body;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .banner-image {
+    height: 250px;
+  }
+}
+
+
