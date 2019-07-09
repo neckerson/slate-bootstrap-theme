@@ -1,0 +1,17 @@
+.hero-image {
+  height: 600px;
+  background-size: cover;
+  color: white;
+
+  h2 {
+    font-family: $font-body;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .hero-image {
+    background-image: none !important;
+    height: 300px;
+    color: black;
+  }
+}
