@@ -2,16 +2,16 @@
 
 > **[Slate v1](https://github.com/Shopify/slate) is currently in beta!** You should expect potentially breaking changes between updates and more bugs than a finalized release. Slate v1.0 has not yet been tested on Windows.
 
-This is the starter theme I wish had been available when I was rolling my own integration of Bootstrap 4 into a custom Shopify theme.
+This is the theme I wish had been available when I was rolling my own integration of Bootstrap 4 into a custom Shopify store
 
-I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/starter-theme) and brought over most of the ```/src``` directory of [Shopify/starter-theme](https://github.com/Shopify/skeleton-theme), with the exception of ```src/styles```. If you find yourself overriding many of the default Bootstrap styles, take a look at the Starter Theme ```/styles``` directory structure and ```theme.scss``` to see how Shopify implements SCSS.
+I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/starter-theme) and brought over most of the ```/src``` directory of [Shopify/starter-theme](https://github.com/Shopify/skeleton-theme), and some of ```src/styles```. These default Shopify styles are being gradually refactored out of the theme as I have time. PRs welcome!
 
 For responsive image loading, use the ```responsive-image``` & ```responsive-bg-image``` snippets. They pair well with Bootstrap's responsive classes, and the lazyloader dependancy is built into the theme.
 
 ### jQuery & Webpack
 Because Bootstrap requires jQuery, additional setup is required in ```theme.js```. For discussion, see Webpack issue [#4258](https://github.com/webpack/webpack/issues/4258).
 
-To add plugins to the theme, such as [jackmoore/zoom](https://github.com/jackmoore/zoom), take a look at [this gist](https://gist.github.com/neckerson/fd24e76e5c3f38d5aef83baadd09d28b) which is partially implemented in ```theme.js```.
+To add plugins to the theme, such as [jackmoore/zoom](https://github.com/jackmoore/zoom), take a look at [this gist](https://gist.github.com/neckerson/fd24e76e5c3f38d5aef83baadd09d28b) which is implemented in ```theme.js```. Image zoom is implemented in sections/product.liquid
 
 ## System requirements
 
@@ -26,7 +26,7 @@ You'll want to ensure you have the following already installed on your local mac
 To get started with the Slate-Bootstrap theme, run the following command in your terminal:
 
 ```
-$ yarn create slate-theme my-new-theme neckerson/slate-bootstrap
+$ yarn create slate-theme my-new-theme neckerson/slate-bootstrap-theme
 ```
 
 For more information on connecting your new project with a Shopify store, see the [Slate docs](https://github.com/Shopify/slate/wiki/3.-Connect-to-your-store).
