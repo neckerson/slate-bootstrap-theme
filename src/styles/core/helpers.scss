@@ -23,22 +23,22 @@
   @include visually-shown;
 }
 
-// // Only show when JS is not supported
-// .no-js:not(html) {
-//   display: none;
-//
-//   .no-js & {
-//     display: block;
-//   }
-// }
-//
-// // Only show when JS is supported
-// .js {
-//   .no-js & {
-//     display: none;
-//   }
-// }
-//
+// Only show when JS is not supported
+.no-js:not(html) {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+// Only show when JS is supported
+.js {
+  .no-js & {
+    display: none;
+  }
+}
+
 // // Only show when browser cookies are not supported
 // .supports-no-cookies:not(html) {
 //   display: none;
