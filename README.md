@@ -8,6 +8,10 @@ I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/s
 
 For responsive image loading, use the ```responsive-image``` & ```responsive-bg-image``` snippets. They pair well with Bootstrap's responsive classes, and the lazyloader dependancy is built into the theme.
 
+### Typopgrapy
+
+This theme is intended to be used with Montserrat Bold for headings and Harmonica Sans for body text. Both of these can be set using the Shopify admin theme editor. You may need to make adjustments in typography.scss if other font pairings are used.
+
 ### jQuery & Webpack
 Because Bootstrap requires jQuery, additional setup is required in ```theme.js```. For discussion, see Webpack issue [#4258](https://github.com/webpack/webpack/issues/4258).
 
