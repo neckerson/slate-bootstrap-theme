@@ -32,6 +32,7 @@
     "@shopify/theme-product": "^2.0.5",
     "@shopify/theme-product-form": "^2.0.5",
     "@shopify/theme-sections": "^2.0.5",
+    "@shopify/theme-cart": "^3.0.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "lazysizes": "4.1.7",
