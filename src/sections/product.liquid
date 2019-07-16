@@ -58,32 +58,28 @@
 
         <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
 
-        <div>Your Price:</div>
-
-        <div class="row" data-price-wrapper>
-          <div class="col money" style="font-size: 2em;">
-            <span data-product-price>
-              {{ current_variant.price | money }}
-            </span>
+        <div data-price-wrapper>
+          <div class="row">
+            <div class="col">
+              {% if product.compare_at_price_max > product.price %}
+                <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                <s data-compare-price>
+                  {% if current_variant.compare_at_price > current_variant.price %}
+                    {{ current_variant.compare_at_price | money }}
+                  {% endif %}
+                </s>
+              {% endif %}
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="small col pb-2">
-            {% if product.compare_at_price_max > product.price %}
-              You save
-              <b>
-                {{ current_variant.compare_at_price |
-                minus: current_variant.price | money }}
-                ({{ current_variant.compare_at_price |
-                minus: current_variant.price |
-                times: 100.0 |
-                divided_by: current_variant.compare_at_price |
-                money_without_currency | times: 100 | remove: '.0'}}%)
-              </b>
-            {% endif %}
-            <!-- col -->
+          <div class="row">
+            <div class="col money" style="font-size: 2em;">
+              <span data-product-price>
+                {{ current_variant.price | money }}
+              </span>
+            </div>
           </div>
+
         </div>
 
         {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
@@ -178,19 +174,6 @@
             </div>
 
             <!-- input group -->
-          </div>
-
-          <div class="row product-promo">
-            <div class="col">
-              <ul class="promo-ul list-inline">
-                <li class="list-inline-item">
-                  <b>FREE SHIPPING</b> for USA orders $35 or more
-                </li>
-                <li class="list-inline-item">
-                  <b>SATISFACTION GUARANTEED</b> 30-day returns!
-                </li>
-              </ul>
-            </div>
           </div>
 
         </div>
