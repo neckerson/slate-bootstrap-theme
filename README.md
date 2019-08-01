@@ -8,7 +8,7 @@ I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/s
 
 For responsive image loading, use the ```responsive-image``` & ```responsive-bg-image``` snippets. They pair well with Bootstrap's responsive classes, and the lazyloader dependancy is built into the theme.
 
-### Typopgrapy
+### Typography
 
 This theme is intended to be used with Montserrat Bold for headings and Harmonica Sans for body text. Both of these can be set using the Shopify admin theme editor. You may need to make adjustments in typography.scss if other font pairings are used.
 
@@ -34,6 +34,10 @@ $ yarn create slate-theme my-new-theme neckerson/slate-bootstrap-theme
 ```
 
 For more information on connecting your new project with a Shopify store, see the [Slate docs](https://github.com/Shopify/slate/wiki/3.-Connect-to-your-store).
+
+### Troubleshooting
+
+If you cannot see the Bootstrap styles being applied after running `yarn start`, open the browser console and check for `ERR_CERT_AUTHORITY_INVALID` errors. You will need to generate a [local SSL certificate](https://github.com/Shopify/slate/wiki/4.-Create-a-self-signed-SSL-certificate) before the theme assets can be served.
 
 ## Contributing
 
