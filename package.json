@@ -31,7 +31,7 @@
     "@shopify/theme-currency": "^3.0.0",
     "@shopify/theme-product": "^2.0.5",
     "@shopify/theme-product-form": "^3.0.0",
-    "@shopify/theme-sections": "^2.0.5",
+    "@shopify/theme-sections": "^3.0.0",
     "@shopify/theme-cart": "^3.0.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
