@@ -345,10 +345,10 @@
     htmllint "^0.6.0"
     lodash "^4.15.0"
 
-"@shopify/theme-product-form@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@shopify/theme-product-form/-/theme-product-form-2.0.5.tgz#ea5b280c69b321bfde386d36b7796abccf7c1c01"
-  integrity sha512-NULuwjnL0vksk7obeU0bT1xN5m1W0Of3mRe9FmuSTfgraFlO3yEMNH1IYD7HnnmpFnwr34yjmLPIbOWmzvOrsg==
+"@shopify/theme-product-form@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-product-form/-/theme-product-form-3.0.0.tgz#ad4b74f7f2bf98fd0e67095b1b4d0c54cbdca49f"
+  integrity sha512-9PWMY/hmWNd724GIEZvzAsRtTVP4J5RC3DAbOO83dS7CwnDcn7EQKceHuTqZAYEPAfom6xKnYViuLd17fTz4lQ==
 
 "@shopify/theme-product@^2.0.5":
   version "2.0.5"
