@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@shopify/slate-tools": "1.0.0-beta.18",
-    "eslint": "^5.16.0"
+    "eslint": "^6.1.0"
   },
   "scripts": {
     "start": "slate-tools start",
