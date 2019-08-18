@@ -329,10 +329,10 @@
   resolved "https://registry.yarnpkg.com/@shopify/theme-cart/-/theme-cart-3.0.0.tgz#04c576ce560ca9215911691a6ba8306c6aa3a329"
   integrity sha512-QsjdEpOJU2ebngqCNqBa1EIy+zDpoBUEs+x70GEBlOLqOJVBs7+9V3TfSQyqSpuA4VqeiochL5Tj1ULx0LLZsQ==
 
-"@shopify/theme-currency@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@shopify/theme-currency/-/theme-currency-2.0.5.tgz#963415257212463421413a3c1d785fbafa5c525e"
-  integrity sha512-o5y5JGNlgZ3DfKaWISscncgBjwGFZTa9FaNOhWzfI3vEVtS2VmZuxw1uIzRq76+bBMGpdu14W06zz3BZrntsQw==
+"@shopify/theme-currency@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-currency/-/theme-currency-3.0.0.tgz#6f8c8fae41006cb32cbf312fcf38cf46fb8dfe75"
+  integrity sha512-fRsG/KFo7ktubi0Hp2DPG5+cEL/Ew1rQb20yqKdQ01+7xmlJh+k4udNSIu8VQmSsTGyznN2EcyJAYy0Sxbbncg==
 
 "@shopify/theme-lint@^2.0.0":
   version "2.0.0"
