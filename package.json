@@ -28,7 +28,7 @@
   "dependencies": {
     "@shopify/theme-a11y": "^2.0.5",
     "@shopify/theme-addresses": "^2.0.5",
-    "@shopify/theme-currency": "^2.0.5",
+    "@shopify/theme-currency": "^3.0.0",
     "@shopify/theme-product": "^2.0.5",
     "@shopify/theme-product-form": "^2.0.5",
     "@shopify/theme-sections": "^2.0.5",
