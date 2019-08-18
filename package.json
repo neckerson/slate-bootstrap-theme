@@ -30,7 +30,7 @@
     "@shopify/theme-addresses": "^2.0.5",
     "@shopify/theme-currency": "^2.0.5",
     "@shopify/theme-product": "^2.0.5",
-    "@shopify/theme-product-form": "^2.0.5",
+    "@shopify/theme-product-form": "^3.0.0",
     "@shopify/theme-sections": "^2.0.5",
     "@shopify/theme-cart": "^3.0.0",
     "bootstrap": "^4.3.1",
