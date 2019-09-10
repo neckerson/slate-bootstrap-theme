@@ -102,7 +102,7 @@
             <span class="text-secondary">Tags: 
             {% for tag in article.tags %}
               <a class="badge badge-secondary" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
-              {% unless forloop.last %}, {% endunless %}
+              {% unless forloop.last %} {% endunless %}
             {% endfor %}
             </span>
           {% endif %}
