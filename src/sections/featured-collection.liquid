@@ -19,7 +19,7 @@
 
       <div class="row pt-3 pt-md-5">
         {% for product in collection.products limit: 6 %}
-          <div class="text-center col-6">
+          <div class="text-center col-6 mb-3">
             <a href="{{ product.url | within: collection }}"
                class="text-decoration-none featured-collection-item">
               {% if product.featured_image != blank %}
@@ -30,6 +30,9 @@
                   max_height: 480
                   %}
                 </div>
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag:
+                  'placeholder-svg placeholder-svg--small' }}
               {% endif %}
 
               <p class="text-dark"><b>{{ product.title | escape }}</b></p>
