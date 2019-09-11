@@ -148,26 +148,30 @@ was loading product.js on the index page, resulting in errors.
           <li data-target="#carouselFeaturedProductIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          {% for image in product.images %}
+          {% if featured_image != blank %}
+            {% for image in product.images %}
 
-            {% capture wrapper_class %}
-              {%- if featured_image == image -%}
-              carousel-item active
-              {%- else -%}
-              carousel-item
-              {%- endif -%}
-            {% endcapture %}
+              {% capture wrapper_class %}
+                {%- if featured_image == image -%}
+                carousel-item active
+                {%- else -%}
+                carousel-item
+                {%- endif -%}
+              {% endcapture %}
 
-            {% include 'responsive-image' with
-            image: image,
-            max_width: 540,
-            max_height: 540,
-            wrapper_class: wrapper_class,
-            image_class: "",
-            image_attributes: "data-product-featured-image",
-            wrapper_attributes: "data-product-image-wrapper",
-            %}
-          {% endfor %}
+              {% include 'responsive-image' with
+              image: image,
+              max_width: 540,
+              max_height: 540,
+              wrapper_class: wrapper_class,
+              image_class: "",
+              image_attributes: "data-product-featured-image",
+              wrapper_attributes: "data-product-image-wrapper",
+              %}
+            {% endfor %}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+          {% endif %}
         </div>
         <a class="carousel-control-prev" href="#carouselFeaturedProduct" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
