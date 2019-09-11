@@ -9,36 +9,43 @@
       <div class="col-md">
         <div class="container product-image">
 
-          {% for image in product.images %}
-            {% capture wrapper_class %}
-              {%- unless featured_image == image -%}
-              hide
-              {%- endunless -%}
-            {% endcapture %}
+          {% if product.images != blank %}
+            {% for image in product.images %}
+              {% capture wrapper_class %}
+                {%- unless featured_image == image -%}
+                hide
+                {%- endunless -%}
+              {% endcapture %}
 
-            {% include 'responsive-image' with
-            image: image,
-            max_width: 750,
-            max_height: 750,
-            image_attributes: "data-product-featured-image",
-            wrapper_class: wrapper_class,
-            wrapper_attributes: "data-product-image-wrapper",
-            %}
-          {% endfor %}
+              {% include 'responsive-image' with
+              image: image,
+              max_width: 750,
+              max_height: 750,
+              image_attributes: "data-product-featured-image",
+              wrapper_class: wrapper_class,
+              wrapper_attributes: "data-product-image-wrapper",
+              %}
+            {% endfor %}
 
-          {% if product.images.size > 1 %}
-            <div class="row justify-content-center">
-              <ul class="list-inline">
-                {% for image in product.images %}
-                  <li class="list-inline-item">
-                    <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
-                      <img class="product-single__thumbnail-image" src="{{ image.src
-                      | img_url: '55x55' }}" alt="{{ image.alt | escape }}">
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
+
+            {% if product.images.size > 1 %}
+              <div class="row justify-content-center">
+                <ul class="list-inline">
+                  {% for image in product.images %}
+                    <li class="list-inline-item">
+                      <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
+                        <img class="product-single__thumbnail-image" src="{{ image.src
+                        | img_url: '55x55' }}" alt="{{ image.alt | escape }}">
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+          {% else %}
+            {{ 'product-3' | placeholder_svg_tag:
+              'placeholder-svg placeholder-svg--small' }}
           {% endif %}
 
           {% if section.settings.show_share_buttons %}
