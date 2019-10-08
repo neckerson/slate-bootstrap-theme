@@ -32,6 +32,29 @@
   {%- endunless -%}
 {%- endif -%}
 
+{% comment %}
+  Here the article content is split by iframe and img tags, responsive Bootstrap
+  classes are added in, and then output to the page.
+
+  The Split filter removes the delimiter from the string. This functionality is
+  exploited to join the array elements back together with new HTML tags added
+  in.
+{% endcomment %}
+
+{% assign split_by_img = article.content | split:'<img' %}
+{% assign article_content = split_by_img | join: '<img class="img-fluid"' %}
+
+{% assign split_by_iframe = article_content | split:'<iframe' %}
+{% assign article_content = split_by_iframe | join: '<iframe
+  class="embed-responsive-item"' %}
+
+{% assign split_by_iframe = article_content | split:'<iframe' %}
+{% assign article_content = split_by_iframe | join: '<div
+  class="embed-responsive embed-responsive-16by9"><iframe' %}
+
+{% assign split_by_iframe = article_content | split:'</iframe>' %}
+{% assign article_content = split_by_iframe | join: '</iframe></div>' %}
+
 <article class="container" role="article">
 
   {% include 'breadcrumbs' %}
@@ -72,7 +95,7 @@
       </header>
 
       <div class="rte">
-        {{ article.content }}
+        {{ article_content }}
       </div>
 
     </div>
