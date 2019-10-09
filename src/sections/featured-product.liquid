@@ -141,11 +141,19 @@ was loading product.js on the index page, resulting in errors.
     </div>
 
     <div class="col-sm order-1 order-md-2">
-      <div id="carouselFeaturedProduct" class="carousel slide" data-interval="false" data-wrap="false">
+      <div id="carouselFeaturedProduct" class="carousel slide"
+        data-ride="carousel" data-interval="false" data-wrap="false">
         <ol class="carousel-indicators">
-          <li data-target="#carouselFeaturedProductIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselFeaturedProductIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselFeaturedProductIndicators" data-slide-to="2"></li>
+          {% if featured_image != blank %}
+            {% for image in product.images %}
+              <li data-target="#carouselFeaturedProduct"
+                  data-slide-to="{{ forloop.index0 }}"
+                  {% if forloop.first == true %}
+                    class="active"
+                  {% endif %}>
+              </li>
+            {% endfor %}
+          {% endif %}
         </ol>
         <div class="carousel-inner">
           {% if featured_image != blank %}

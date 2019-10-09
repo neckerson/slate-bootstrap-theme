@@ -43,3 +43,10 @@
   font-weight: 700;
   line-height: 25px;
 }
+
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-indicators {
+  filter: invert(100%);
+  opacity: 0.2;
+}
