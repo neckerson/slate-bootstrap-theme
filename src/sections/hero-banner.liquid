@@ -27,16 +27,17 @@
       {% endif %}
     </div>
     <div class="col mt-3 mt-md-5">
-      {% if section.settings.button_label_1 != blank and
-        section.settings.button_link_1 != blank %}
-        <a class="btn btn-secondary btn-lg
-        {% if section.settings.button_label_2 != blank and
-          section.settings.button_link_2 != blank %} mr-3
-         {% endif %}"
-          href="{{ section.settings.button_link_1 }}">
-          {{ section.settings.button_label_1 | escape }}
-        </a>
-      {% endif %}
+      <div class="row d-flex justify-content-center">
+        {% if section.settings.button_label_1 != blank and
+          section.settings.button_link_1 != blank %}
+          <a class="btn btn-secondary btn-lg
+          {% if section.settings.button_label_2 != blank and
+            section.settings.button_link_2 != blank %} mr-3
+           {% endif %}"
+           href="{{ section.settings.button_link_1 }}">
+            {{ section.settings.button_label_1 | escape }}
+          </a>
+        {% endif %}
       {% if section.settings.button_label_2 != blank and
         section.settings.button_link_2 != blank %}
         <a class="btn btn-primary btn-lg" href="{{
@@ -44,6 +45,7 @@
           {{ section.settings.button_label_2 | escape }}
         </a>
       {% endif %}
+      </div>
     </div>
   </div>
 </div>
