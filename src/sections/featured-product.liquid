@@ -13,12 +13,7 @@ the carousel element.
   {%- assign onboarding_title = 'homepage.onboarding.product_title' | t -%}
 {% endif %}
 
-{% comment %}
-Removed  data-section-type="product"  from the container div below, because it
-was loading product.js on the index page, resulting in errors.
-{% endcomment %}
-
-<div class="container mb-3" data-section-id="{{ section.id }}">
+<div class="container mb-3" data-section-type="product" data-section-id="{{ section.id }}">
 
   {% if section.settings.title != blank %}
     <h2 class="display-4 text-center pb-3 border-bottom featured-collection__title">{{ section.settings.title | escape }}</h2>
@@ -64,7 +59,10 @@ was loading product.js on the index page, resulting in errors.
 
       <div>
 
-        <form class="form-group" action="/cart/add" method="post" enctype="multipart/form-data">
+        <form data-product-form data-product-handle="{{product.handle}}"
+          class="form-group" action="/cart/add" method="post"
+          enctype="multipart/form-data">
+
           {% unless product.has_only_default_variant %}
             {% for option in product.options_with_values %}
               <div class="selector-wrapper js">
