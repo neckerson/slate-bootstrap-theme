@@ -9,7 +9,7 @@ This page represents the /collections and /products pages.
         {% unless collection.handle == 'frontpage' %}
           <div class="row mb-3">
             <div class="col-md-5 pt-3 {% cycle '', 'order-md-2' %}">
-              <h1 class="text-center"><a class="text-decoration-none text-dark" href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a></h1>
+              <h1 class="text-center"><a class="text-decoration-none text-reset" href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a></h1>
             </div>
             <div class="col-md-5 {% cycle '', 'order-md-1' %}">
               <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">

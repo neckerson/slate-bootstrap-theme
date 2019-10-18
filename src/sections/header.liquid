@@ -37,7 +37,7 @@ Theme Store optional settings
             {% else %}
               <div class="h1">
               {% endif %}
-              <a href="/" class="logo-image text-dark">
+              <a href="/" class="logo-image text-reset text-decoration-none">
                 {% if section.settings.logo != blank %}
                   {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
                   <img src="{{ section.settings.logo | img_url: image_size }}"
@@ -143,7 +143,7 @@ Theme Store optional settings
                   <div class="row">
 
                     <div class="btn mr-3">
-                      <span class="text-dark">{% include 'icon-user' %}</span>
+                      <span>{% include 'icon-user' %}</span>
                     </div>
 
                   </div>

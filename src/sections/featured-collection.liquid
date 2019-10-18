@@ -21,7 +21,7 @@
         {% for product in collection.products limit: 6 %}
           <div class="text-center col-6 mb-3">
             <a href="{{ product.url | within: collection }}"
-               class="text-decoration-none featured-collection-item">
+               class="text-decoration-none text-reset featured-collection-item">
               {% if product.featured_image != blank %}
                 <div class="featured-collection__image">
                   {% include 'responsive-image' with
@@ -35,7 +35,7 @@
                   'placeholder-svg placeholder-svg--small' }}
               {% endif %}
 
-              <p class="text-dark"><b>{{ product.title | escape }}</b></p>
+              <p><b>{{ product.title | escape }}</b></p>
                 {% if product.compare_at_price > product.price %}
                   {% if product.price_varies %}
                     {%- assign sale_price = product.price | money -%}
@@ -44,7 +44,7 @@
                       sale_price }}!
                     </span>
                   {% else %}
-                    <span class="text-dark">
+                    <span>
                       {{ 'products.product.on_sale' | t }}!
                     </span>
                     <span class="money">
@@ -68,11 +68,11 @@
         {% else %}
           {% for i in (1..6) %}
             <div class="text-center col-6">
-              <a href="#" class="text-decoration-none featured-collection-item">
+              <a href="#" class="text-decoration-none text-reset featured-collection-item">
                 {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
                 {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
 
-                <p class="text-dark">
+                <p>
                   <b>{{ 'homepage.onboarding.product_title' | t }}</b>
                 </p>
                 <p class="money" style="font-size: 1em;">{{ 1999 | money }}</p>
