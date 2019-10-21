@@ -12,7 +12,7 @@
     "settings": [
       {
         "type":      "paragraph",
-        "content":   "The settings in this panel are augmented by the Bootstrap color classes which are set in src/styles/variables.scss and compiled into the theme files by Slate. Please refer to the theme documentation for more information."
+        "content":   "The settings in this panel are augmented by the Bootstrap color classes which are defined in src/styles/variables.scss and compiled into the theme files by Slate. Please refer to the theme documentation for more information."
       },
       {
         "type": "color",

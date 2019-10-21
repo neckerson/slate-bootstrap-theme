@@ -10,6 +10,19 @@ I've started with the base [Shopify/skeleton-theme](https://github.com/Shopify/s
 
 For responsive image loading, use the ```responsive-image``` & ```responsive-bg-image``` snippets. They pair well with Bootstrap's responsive classes, and the lazyloader dependancy is built into the theme.
 
+### Theming
+
+Body background and text color can be set via the Shopify theme editor panels,
+but other changes should be made with Bootstrap's built-in Sass variables,
+allowing global style preferences, easy theming and component changes.
+
+In ```src/styles/variables.scss``` you will find examples of customization
+already done, with the primary and secondary colors changed to different
+Bootstrap 4 color variables. You could experiment with other changes, such as
+adding ```$enable-rounded: false;``` to variables.scss and deploying the
+theme. For more examples, see the Bootstrap 4 [theming
+documentation](https://getbootstrap.com/docs/4.0/getting-started/theming/).
+
 ### Typography
 
 This theme is intended to be used with Montserrat Bold for headings and Harmonica Sans for body text. Both of these can be set using the Shopify admin theme editor. You may need to make adjustments in typography.scss if other font pairings are used.
