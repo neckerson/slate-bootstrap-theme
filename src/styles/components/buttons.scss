@@ -6,7 +6,7 @@
   }
   &:hover {
     .icon {
-      color: $color_body;
+      color: $body-bg;
     }
   }
 }
@@ -24,13 +24,10 @@
 }
 
 .btn-primary {
-  // button-variant is pulled in from /boostrap/mixins/_buttons.scss
-  @include button-variant($orange, $orange);
   color: $white;
 }
 
 .btn-secondary {
-  @include button-variant($blue, $blue);
   color: $white;
 }
 

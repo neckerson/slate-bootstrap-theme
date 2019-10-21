@@ -4,11 +4,11 @@
  * [Slate Bootstrap Theme v1.0] | Built with Slate
   */
 
-// Bootstrap CSS
-@import '~bootstrap/scss/bootstrap';
-
 // Settings
 @import './variables';
+
+// Bootstrap CSS
+@import '~bootstrap/scss/bootstrap';
 
 // Tools
 @import './tools/mixins';

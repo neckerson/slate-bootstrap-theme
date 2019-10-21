@@ -11,11 +11,15 @@
     "name": "Colors",
     "settings": [
       {
+        "type":      "paragraph",
+        "content":   "The settings in this panel are augmented by the Bootstrap color classes which are set in src/styles/variables.scss and compiled into the theme files by Slate. Please refer to the theme documentation for more information."
+      },
+      {
         "type": "color",
         "id": "color_accent",
         "label": "Accent",
         "default": "#c4cdd5",
-        "info": "Buttons and special ornaments"
+        "info": "Set meta tag theme-color value"
       },
       {
         "type": "color",

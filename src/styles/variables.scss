@@ -1,8 +1,17 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+// Boostrap theme colors
+$theme-colors: (
+  "primary": $orange,
+  "secondary": $blue
+);
+
 // Text colors
-$color-body-text: var(--color-body-text);
+$body-color: var(--color-body-text);
 
 // Background colors
-$color-body: var(--color-main-background);
+$body-bg: var(--color-main-background);
 
 // Placeholders
 $placeholder-color-foreground: #161d25;
@@ -12,13 +21,6 @@ $placeholder-color-background: #f9fafb;
 $color-accent: var(--color-accent);
 $color-border: var(--color-border);
 
-// Helper colors for form error states
-// $color-disabled: #000000;
-// $color-disabled-border: #000000;
-// $color-error: #ff6d6d;
-// $color-error-bg: #ffffff;
-// $color-success: #000000;
-// $color-success-bg: #000000;
 
 // Typography
 $font-heading: var(--font-heading);
@@ -29,32 +31,3 @@ $font-body-bold-weight: var(--font-body-bold-weight);
 
 // Transitions
 $transition-duration: 250ms;
-// $transition-timing: ease-in-out;
-
-// Grid
-// $grid-medium: 46.85em;
-// $grid-large: 61.85em;
-// $grid-widescreen: 87.5em;
-// $grid-max-width: 73.75em;
-// $grid-gutter: 30px;
-
-// Breakpoints used with the media-query mixin
-// $small: 'small';
-// $medium: 'medium';
-// $medium-down: 'medium-down';
-// $medium-up: 'medium-up';
-// $large: 'large';
-// $large-down: 'large-down';
-// $large-up: 'large-up';
-// $widescreen: 'widescreen';
-//
-// $breakpoints: (
-//   $small '(max-width: #{$grid-medium - 1})',
-//   $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
-//   $medium-down '(max-width: #{$grid-large - 1})',
-//   $medium-up '(min-width: #{$grid-medium})',
-//   $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
-//   $large-down '(max-width: #{$grid-widescreen - 1})',
-//   $large-up '(min-width: #{$grid-large})',
-//   $widescreen '(min-width: #{$grid-widescreen})'
-// );
