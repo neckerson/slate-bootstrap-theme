@@ -15,7 +15,7 @@
     "url": "https://github.com/neckerson/slate-bootstrap.git"
   },
   "devDependencies": {
-    "@shopify/slate-tools": "1.0.0-beta.18",
+    "@shopify/slate-tools": "1.0.0-beta.19",
     "eslint": "^6.1.0"
   },
   "scripts": {
@@ -28,16 +28,16 @@
   "dependencies": {
     "@shopify/theme-a11y": "^2.0.5",
     "@shopify/theme-addresses": "^2.0.5",
+    "@shopify/theme-cart": "^3.0.0",
     "@shopify/theme-currency": "^3.0.0",
     "@shopify/theme-product": "^2.0.5",
     "@shopify/theme-product-form": "^3.0.0",
     "@shopify/theme-sections": "^3.0.0",
-    "@shopify/theme-cart": "^3.0.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "jquery-zoom": "^1.7.21",
     "lazysizes": "^5.1.1",
     "popper.js": "^1.15.0",
-    "jquery-zoom": "^1.7.21",
     "qrcode": "^1.3.3"
   }
 }
