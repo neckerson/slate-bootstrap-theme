@@ -34,7 +34,7 @@
     "@shopify/theme-product-form": "^3.0.0",
     "@shopify/theme-sections": "^3.0.0",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-zoom": "^1.7.21",
     "lazysizes": "^5.1.1",
     "popper.js": "^1.15.0",
