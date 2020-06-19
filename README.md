@@ -1,6 +1,6 @@
 # Slate-Bootstrap Theme
 
-> **[Slate v1](https://github.com/Shopify/slate) is currently in beta!** You should expect potentially breaking changes between updates and more bugs than a finalized release. Slate v1.0 has not yet been tested on Windows.
+> **[Depreciation Notice](https://shopify.github.io/slate/docs/about)**. As of Jan 2020, the Slate development environment has been depreciated by the Shopify team. While it may be possible to compile the theme today, I will no longer be maintaining this project. For the compiled theme which can be managed with Theme Kit, [see this repository](https://github.com/neckerson/shopify-bootstrap-theme).
 
 This is the theme I wish had been available when I was rolling my own integration of Bootstrap 4 into a custom Shopify store.
 
@@ -12,16 +12,9 @@ For responsive image loading, use the ```responsive-image``` & ```responsive-bg-
 
 ### Theming
 
-Body background and text color can be set via the Shopify theme editor panels,
-but other changes should be made with Bootstrap's built-in Sass variables,
-allowing global style preferences, easy theming and component changes.
+Body background and text color can be set via the Shopify theme editor panels, but other changes should be made with Bootstrap's built-in Sass variables, allowing global style preferences, easy theming and component changes.
 
-In ```src/styles/variables.scss``` you will find examples of customization
-already done, with the primary and secondary colors changed to different
-Bootstrap 4 color variables. You could experiment with other changes, such as
-adding ```$enable-rounded: false;``` to variables.scss and deploying the
-theme. For more examples, see the Bootstrap 4 [theming
-documentation](https://getbootstrap.com/docs/4.0/getting-started/theming/).
+In ```src/styles/variables.scss``` you will find examples of customization already done, with the primary and secondary colors changed to different Bootstrap 4 color variables. You could experiment with other changes, such as adding ```$enable-rounded: false;``` to variables.scss and deploying the theme. For more examples, see the Bootstrap 4 [theming documentation](https://getbootstrap.com/docs/4.0/getting-started/theming/).
 
 ### Typography
 
